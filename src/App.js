@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, createContext } from "react";
+import "./App.css";
+import Cards from "./components/Cards";
+import Switch from "./components/Switch";
+
+export const PriceContext = createContext();
 
 function App() {
+  const [pricing, setPricing] = useState("Monthly");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PriceContext.Provider
+      value={{
+        pricing,
+        setPricing,
+      }}
+    >
+      <div className="App">
+        <header className="App-header">
+          <h1>Our Pricing</h1>
+          <Switch
+            pricing={pricing}
+            setPricing={setPricing}
+          />
+        </header>
+        <main>
+          <Cards pricing={pricing} />
+        </main>
+      </div>
+    </PriceContext.Provider>
   );
 }
 

@@ -1,38 +1,131 @@
-.App {
+:root {
+  --VeryLightGrayishBlue: hsl(240, 78%, 98%);
+  --LightGrayishBlue: hsl(234, 14%, 74%);
+  --GrayishBlue: hsl(233, 13%, 49%);
+  --DarkGrayishBlue: hsl(232, 13%, 33%);
+  --LinearGradient: hsl(236, 72%, 79%) to hsl(237, 63%, 64%);
+}
+
+/* The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px */
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-image: url(./images/bg-top.svg), url(./images/bg-bottom.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top right, 10% 136%;
+  font-size: 15px;
+}
+
+.App-header h1 {
   text-align: center;
+  margin-top: 3rem;
+  color: var(--GrayishBlue);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Switch.Js */
+.switch-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  width: 15%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto;
+  color: var(--LightGrayishBlue);
 }
 
-.App-link {
-  color: #61dafb;
+.radio {
+  margin: 0 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+input {
+  display: none;
+}
+
+.switch {
+  position: relative;
+  padding: 0.7rem 1.5rem;
+  width: 50%;
+  border-radius: 42%;
+  border: 1px solid hsl(237, 63%, 64%);
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+.switch:hover {
+  opacity: 0.5;
+}
+
+.Monthly:after,
+.Annually:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  padding: 0.55rem;
+  border-radius: 50%;
+  background-color: var(--VeryLightGrayishBlue);
+  transition: all 0.2s ease-in;
+}
+
+.Monthly:after {
+  left: 28px;
+}
+.Annually:after {
+  left: 0;
+}
+
+/* CARDS */
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.card-container {
+  width: 16rem;
+  text-align: center;
+  padding: 2rem 2rem 3rem 2rem;
+  box-shadow: 0px 3px 0px hsla(234, 14%, 74%, 0.3);
+  border-radius: 8px;
+}
+
+li {
+  padding: 2rem;
+}
+
+hr {
+  border-color: hsla(240, 78%, 98%, 0.5);
+}
+
+h2 {
+  font-size: 48px;
+}
+
+.btn-cta {
+  width: 100%;
+  text-transform: uppercase;
+  border-radius: 0.3rem;
+  padding: 1rem;
+
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.btn-cta:hover {
+  background: var(--VeryLightGrayishBlue) !important;
+  color: hsl(237, 63%, 64%) !important;
+  border: 1px solid hsl(237, 63%, 64%);
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  ul {
+    flex-direction: column;
   }
 }
